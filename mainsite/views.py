@@ -29,7 +29,7 @@ class RegisterForm(forms.Form):
 @login_required()
 def index(request):
     number = Number.objects.get(pk=1)
-    if number.in_progress:  # 游戏进行中
+    if number.in_progress:
         return render(request, 'standby.html')
     else:
         return HttpResponseRedirect('/result')
