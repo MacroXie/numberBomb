@@ -1,13 +1,12 @@
 {% extends 'layout.html' %}
+{% load static %}
 
 {% block title %}游戏后台管理{% endblock %}
-{% block head %}
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+{% block scripts %}
+    <script src="{% static 'jquery/jquery.min.js' %}"></script>
 {% endblock %}
-
 {% block body %}
     <h2>后台管理</h2>
-    <h1>工信部备案：<a href="https://beian.miit.gov.cn">京ICP备2023015619号</a></h1>
     <button id="ajaxButton">初始化</button>
     <div id="result"></div>
     <button id="ajaxButton2">结束</button>

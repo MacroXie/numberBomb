@@ -1,8 +1,11 @@
 from django.contrib.auth.models import User
 from django.db import models
 
+class Server(models.Model):
+    pass
 
-# Create your models here.
+
+
 class History(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     number = models.FloatField(name="number")
