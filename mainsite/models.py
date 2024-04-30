@@ -1,9 +1,17 @@
 from django.contrib.auth.models import User
 from django.db import models
 
-class Server(models.Model):
-    pass
 
+class NumberBomb(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    number = models.FloatField(name="number")
+    number_delta = models.FloatField(name="number_delta")
+    rank = models.IntegerField(name="rank")
+
+class Result(models.Model):
+    target_number = models.CharField(name="target_number")
+
+    def __str__(self):
 
 
 class History(models.Model):

@@ -5,12 +5,12 @@
 # @Software : PyCharm
 
 from django.urls import path
-
 from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
     path('register', views.register, name='registration'),
-    path('result', views.result),
-    path('game_admin', views.admin)
+    path('result', views.result, name='result'),
+    path('control', views.admin, name='control'),
+    path('board', views.board, name='board')
 ]

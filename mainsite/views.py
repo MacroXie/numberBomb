@@ -1,5 +1,7 @@
 import random
 import string
+import json
+from django.contrib.admin.views.decorators import staff_member_required
 from django import forms
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
@@ -8,9 +10,21 @@ from django.db import IntegrityError
 from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
-
 from mainsite.models import History, Number, Winners, Bombed
 from mainsite.utils import initialize, stop_game
+from mainsite.code import server
+from mainsite.code import game
+
+def register(request):
+    pass
+
+
+
+@login_required()
+def index(request):
+    pass
+
+
 
 
 def generate_random_string(length):
@@ -36,7 +50,7 @@ def index(request):
 
 def result(request):
     number = Number.objects.get(pk=1)
-    if number.in_progress:  # 游戏进行中
+    if number.in_progress:
         return HttpResponseRedirect('/')
     else:
         winners = list(Winners.objects.all())
@@ -94,3 +108,27 @@ def admin(request):
             else:
                 stop_game()
                 return JsonResponse({'status': 'success'})
+
+
+def request_result(request):
+
+
+
+
+
+
+
+
+
+
+
+
+
+@csrf_exempt
+@staff_member_required
+def game_admin(request):
+
+
+
+@staff_member_required
+def board(request):
